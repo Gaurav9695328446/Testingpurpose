@@ -1,0 +1,28 @@
+<app-slider-by-screen class="row leader-contain m-2" *ngIf="trendingProfile.length > 0; else trandingProfileLoadElem" style="margin-left: 100px;margin-right: 100px">
+      <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 px-3 pb-2 removerMargin dsp-inb" *ngFor="let item of trendingProfile" >
+        <div class="thumbnail">
+          <a href="{{item.url}}" target="_blank" style="cursor: pointer;">
+              <img src="{{item.imageUrl}}" style="width:100%; height:100%;">
+          </a>
+        </div>
+      </div>
+    </app-slider-by-screen>
+    <!--loader for tranding leaders-->
+    <ng-template #trandingProfileLoadElem>
+      <div class="row leader-contain m-0 loading w-100">
+        &nbsp;
+      </div>
+    </ng-template>
+<div class="bgimg comming-soon">
+  <div class="topleft">
+    <p></p>
+  </div>
+  <div class="middle">
+    <h1>COMING SOON</h1>
+    <hr>
+    <p></p>
+  </div>
+  <div class="bottomleft">
+    <p></p>
+  </div>
+</div>

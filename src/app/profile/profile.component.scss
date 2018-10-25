@@ -1,0 +1,364 @@
+.btn-like {
+  border: none;
+  outline: none !important;
+  box-shadow: none;
+  color: #28a745;
+  padding: 5px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn-dislike {
+  border: none;
+  outline: none !important;
+  box-shadow: none;
+  color: #dc3545;
+  padding: 5px;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+//
+//
+//body{
+//    overflow-x: hidden;
+//    font-family: 'Roboto', sans-serif;
+//}
+///*******************************************************************/
+///************************ Header Begin *****************************/
+///*******************************************************************/
+//.header {
+//    background: white;
+//    width: 100%;
+//    height: 50px;
+//    padding-left: 20px;
+//}
+//
+//
+///*******************************************************************/
+///************************ Header Ends ******************************/
+///*******************************************************************/
+///************************ Navbar Begin *****************************/
+///*******************************************************************/
+//.navbar{
+//    background: #F3F3F3 ;
+//    margin-bottom:0px;
+//}
+//
+//.menu {
+//	border-top: 1px solid #D5D5D5;
+//	border-bottom: 1px solid #D5D5D5;
+//}
+//
+//.navbar ul li a{
+//
+// font-weight: 900;
+// padding-left: 30px;
+// padding-right: 30px;
+// color: #7A7A7A;
+// font-size: 12px;
+//}
+//
+//.menu ul li a:hover{
+//    color: white;
+//    background: #145394;
+//	border-radius:4px
+//}
+//
+///** Sign in-Sign up Butoons **/
+//.setbtn{
+//
+//	background: none;
+//	border: 1px solid #7A7A7A;
+//	color:#7A7A7A;
+//	border-radius:15px;
+//}
+//
+//.setbtn:hover{
+//	 color: white;
+//    background: #145394;
+//	border-radius:15px
+//
+//}
+//
+//.navbar-right{
+//	padding-top:8px;
+//	padding-right:10px;
+//}
+//
+///** Popup Sign-signup **/
+//.modal-header .nav .op a:hover{
+//    color:white;
+//	background:#145394;
+//	border-radius:4px
+//  }
+//
+//  .modal-header .nav .op a{
+//    color:black
+//
+//  }
+//
+///*******************************************************************/
+///************************ Navbar End *******************************/
+///*******************************************************************/
+///************************ Banner Begin *****************************/
+///*******************************************************************/
+//
+//.banner img{
+//  width:100%;
+//  height:auto;
+//  background-position: center;
+//  background-repeat: no-repeat;
+//  background-position: fixed;
+//  background-size:cover;
+//
+//  align-content: center;
+//  vertical-align: middle;
+//}
+//
+//.content h1{
+//	position: absolute;
+//	top:32vw;
+//	left:27vw;
+//	color: white;
+//    text-align: center;
+//}
+//
+//.content img{
+//	position: absolute;
+//	top:22vw;
+//	left:44vw;
+//	width:10vw;
+//	height:auto;
+//
+//}
+///*** Searchbar**/
+//.searchbar{
+//	position:absolute;
+//	top:40vw;
+//
+//}
+///*******************************************************************/
+///************************ Banner End *******************************/
+///*******************************************************************/
+///********************* Leader Profile Begin*************************/
+///*******************************************************************/
+//.jumbotron1{
+//	border:1px solid #C0C0C0;
+//	background:white;
+//}
+//
+//.thumbnail{
+//	height:350px;
+//	width:250px;
+//box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+//}
+///*******************************************************************/
+///********************* Leader Profile End **************************/
+///*******************************************************************/
+//
+//
+//
+//.stylish-input-group .input-group-addon{
+//    background: #F3F3F3 !important;
+//	border-color:#F3F3F3;
+//}
+//.stylish-input-group .form-control{
+//	border-right:0;
+//	box-shadow:0 0 0;
+//	border-color:#F3F3F3;
+//	background: #F3F3F3 !important;
+//}
+//.stylish-input-group button{
+//    border:0;
+//    background:transparent;
+//}
+//
+//.section1{
+//	background: #F3F3F3;
+//	height:100px;
+//	width:100%;
+//}
+//
+//@media screen and (max-width: 768px){
+//	.intro{
+//		text-align: center
+//	}
+//}
+//@media screen and (min-width: 768px) and (max-width: 992px){
+//	.intro{
+//		text-align: center
+//	}
+//}
+//
+//.vote{
+//	width:137px;
+//	background:#F3F3F3;
+//	margin:0 auto;
+//}
+//
+//.profile ul li a:hover{
+//	border-bottom:2px solid #145394
+//}
+//
+//@media screen and (min-width: 992px) {
+//	.intro .btn-default{
+//		float:right
+//	}
+//}
+//
+//.sharebtn{
+//	padding-top:5px;
+//}
+//
+//.area{
+//	width:100%;
+//	background-color:#F3F3F3
+//}
+//.edit-site{
+//	padding-top: 20px;
+//	background: #F3F3F3;
+//}
+//.count-badge {
+//    background-color: #999;
+//    border-radius: 9px;
+//    color: #fff;
+//    display: inline-block;
+//    font-size: 11.844px;
+//    font-weight: bold;
+//    line-height: 14px;
+//    margin-right: 15px;
+//    padding: 2px 4px;
+//    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+//    vertical-align: baseline;
+//    white-space: nowrap
+//}
+//p {
+//	font-family: Lato;
+//  }
+//
+//  .ratings {
+//	color: orange;
+//	line-height:1rem;
+//	font-size: 250%;
+//  }
+//  .nav-tabs {
+//	border-bottom: 1px solid #dee2e6;
+//	background: green;
+//}
+
+.vote .highlight{
+  display: inline-block;
+  background: #FFFFFF;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+.vote .highlight .dislike{
+  display: inline-block;
+   padding: 5px 10px;
+}
+.introMainHeader{
+  color: #5C5C5C;
+  font-size:32px
+}
+.introMainTitle{
+  color: #5C5C5C;
+  font-size:18px
+}
+.rateButton{
+  background:#145394 ;
+  color:white
+}
+.active{
+    color: #fff;
+    background: #145394;
+    //border-bottom: 1px solid #007bff;
+}
+
+/*  Social Share */
+.share-icon {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.share-options {
+  list-style: none;
+}
+
+.share-options > li:hover {
+  background: rgba(0,0,0,0.1);
+}
+
+.share-icon:before {
+  content: '';
+  display: inline-block;
+  background-image: url('../../assets/Images/fb-icon-color.png');
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  background-size: contain;
+}
+
+.fb-icon:before {
+  background-image: url('../../assets/Images/fb-icon-color.png');
+}
+.twitter-icon:before {
+  background-image: url('../../assets/Images/twitter-icon-color.png');
+}
+.email-icon:before {
+  background-image: url('../../assets/Images/email-icon-color.png');
+}
+.copy-icon:before {
+  background-image: url('../../assets/Images/copy-icon-color.png');
+}
+
+.profile-pic {
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+}
+.profile-share-list > ul {
+  list-style-type: none;
+}
+.profile-share-list li {
+  display: inline-block;
+  margin: 5px;
+}
+.profile-share-list li > a {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  background-repeat: no-repeat;
+}
+
+.profile-share-list .twitter {
+  background: url('../../assets/Images/profile-twitter.png');
+}
+.profile-share-list .facebook {
+  background: url('../../assets/Images/profile-facebook.png');
+}
+.profile-share-list .youtube {
+  background: url('../../assets/Images/profile-YouTube.png');
+}
+.profile-share-list .instagram {
+  background: url('../../assets/Images/profile-Instagram.png');
+}
+.profile-share-list .linkedin {
+  background: url('../../assets/Images/profile-LinkedIN.png');
+}
+.profile-share-list .website {
+  background: url('../../assets/Images/profile-websote.png');
+}
+
+@media (max-width: 768px) {
+  .leader-rating {
+    position: relative;
+  } 
+  .text-sm-cntr {
+    text-align: center!important;
+  }
+}

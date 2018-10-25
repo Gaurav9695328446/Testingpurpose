@@ -1,0 +1,236 @@
+<!-- <div class="banner"> -->
+<!--<img class="img-responsive" src="assets/Images/banner.jpg">-->
+<!-- <div class="row wrap justify-content-center"> -->
+<!-- <div class="col-12 text-center">
+      <img class="netaji-image" src="assets/Images/netaji.png">
+    </div> -->
+<!-- <div class="col-12 text-center mt-4">
+      <h1 class="text-center">Connecting India to their Leaders</h1>
+    </div> -->
+<!-- <div class="col-md-8 mt-4">
+      <div class="input-group mb-3 pl-4 pr-4 serachBox">
+
+        <ng-template #customItemTemplate let-model="item" let-index="index">
+          <div [style.width.px]="inputRef.nativeElement.clientWidth - 40">
+            {{model.profileDetails.firstName}} {{model.profileDetails.lastName}}
+          </div>
+        </ng-template>
+
+        <input #input
+           [(ngModel)]="asyncSelected"
+           style="height: 38px"
+           placeholder="Search"
+           [typeahead]="dataSource"
+           (typeaheadLoading)="changeTypeaheadLoading($event)"
+           typeaheadWaitMs="500"
+           (typeaheadOnSelect)="typeaheadOnSelect($event)"
+           [typeaheadOptionsLimit]="7"
+           spellcheck="false"
+            [typeaheadItemTemplate]="customItemTemplate"
+            class="form-control">
+
+        <div class="input-group-append">
+          <button class="btn btn-primary" (click)="searchApi()" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </div> -->
+<!-- </div> -->
+<!-- </div> -->
+
+
+<div class="container-fluid" style="padding-top:25px;">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 w-50">
+        <!-- <p>
+          <strong>Trending Leaders</strong>
+        </p> -->
+        <img src="assets/Images/trendingleaders.png" />
+      </div>
+      <!-- <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right w-50 d-flex align-items-center justify-content-end">
+        <span class="dark-blue-color font-wght-500">VIEW ALL</span>
+      </div> -->
+    </div>
+    <app-slider-by-screen class="row leader-contain m-0" *ngIf="trendingProfile.length > 0; else trandingProfileLoadElem">
+      <div class="col-md-6 col-xs-12 col-sm-6 col-lg-3 px-3 pb-2 removerMargin dsp-inb" *ngFor="let item of trendingProfile;" [routerLink]="['/profile',item.id]">
+        <div class="thumbnail">
+          <a [routerLink]="['/profile',item.id]">
+            <div *ngIf="item.profileDetails.profilePic;else other_content">
+              <img src="{{item.profileDetails.profilePic}}" style="width:100%; height:250px;" />
+            </div>
+            <ng-template #other_content>
+              <img src="assets/Images/d.jpg" alt="Narendra Modi" style="width:100%; height:auto;">
+            </ng-template>
+          </a>
+          <div class="caption">
+            <strong class="name ellipsis">{{item.profileDetails.firstName}} {{item.profileDetails.lastName}}</strong>
+            <p class="heading ellipsis"> {{item.profileDetails.position}}&nbsp;</p>
+            <p class="heading ellipsis">{{item.profileDetails.state}}</p>
+          </div>
+          <div class="row removerMargin px-2">
+            <div class="vote col-xs-6 col-sm-6 col-md-6 w-50">
+              <button class="btn-like" (click)="likeProfile()">
+                <i class="fa fa-thumbs-up"></i>
+              </button>
+              <span class="dislike">{{item.like}}</span>
+            </div>
+            <div class="vote col-xs-6 col-sm-6 col-md-6 w-50">
+              <button class="btn-dislike" (click)="dislikeProfile()">
+                <i class="fa fa-thumbs-down"></i>
+              </button>
+              <span class="dislike">{{item.dislike}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-slider-by-screen>
+    <!--loader for tranding leaders-->
+    <ng-template #trandingProfileLoadElem>
+      <div class="row leader-contain m-0 loading w-100">
+        &nbsp;
+      </div>
+    </ng-template>
+  </div>
+  <div class="row paddingRemove">
+    <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6">
+      <!-- <img class="img-responsive advertisment" src="assets/Images/ad_image.png" alt="Hamare Netaji kahen"> -->
+      <img class="img-responsive advertisment" src="{{trendingsectionAd[0].imageUrl}}" alt="Hamare Netaji kahen"/>
+    </div>
+    <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6 text-md-right">
+      <!-- <img class="img-responsive advertisment" src="assets/Images/ad_image.png" alt="Hamare Netaji kahen"> -->
+       <img class="img-responsive advertisment" src="{{trendingsectionAd[0].imageUrl}}" alt="Hamare Netaji kahen"/>
+    </div>
+  </div>
+
+  <section style="margin-top: 15px;">
+    <div class="container jumbotron interview mb-0">
+      <div class="row m-0">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pl-0 mb-3">
+          <div class="row bg-clr-1 m-0">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 w-50 p-0">
+              <img src="assets/Images/selfie_with_HamereNetaji.png" />
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right w-50 col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right w-50 d-flex align-items-center justify-content-end">
+              <span class="dark-blue-color font-wght-500 cursor" routerLink="/interviews">VIEW ALL</span>
+            </div>
+          </div>
+          <div class="row justify-content-center bg-clr-1 m-0" style="height: calc(100% - 33px)">
+            <div class="col-md-10 col-xs-12 col-sm-12 setlayout m-5">
+              <div class="row">
+                <div class="embed-responsive embed-responsive-16by9" *ngIf="trendingInterview.length > 0">
+                  <iframe class="embed-responsive-item" [src]="trendingInterview[0].youtubeLink | safe : 'resourceUrl'" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6 border-right setlayout">
+            <div class="row d-flex justify-content-between align-items-center mb-3">
+
+              <span>
+                <strong>INTERVIEW</strong>
+              </span>
+              <span>
+
+              </span>
+
+            </div>
+            <div class="row">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/uz2KJUYTeAI?rel=0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div> -->
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pl-0 mb-3 bg-clr-1">
+          <div class="row m-0">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 w-50 p-0">
+              <img src="assets/Images/HamareNetajiKahin.png" />
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right w-50 p-0 d-flex align-items-center justify-content-end">
+              <span class="dark-blue-color font-wght-500 cursor" routerLink="/hamare-netaji-kahen">VIEW ALL</span>
+            </div>
+          </div>
+          <div class="row justify-content-center bg-clr-1 m-0">
+            <div class="col-md-12 col-xs-12 col-sm-12 setlayout my-5">
+              <div class="row mb-3 bdr-brm-2" *ngFor="let netajiKahen of hamareNetajiKahen">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                  <h3>
+                    <b>{{netajiKahen.title}}</b>
+                  </h3>
+                  <p>{{netajiKahen.descriptions}}</p>
+                  <div class="text-right w-100 clearfix">
+                    <span class="flt-l pt-1">{{netajiKahen.createdOn | date : 'dd/MM/yyyy'}}</span>
+                    <h3>{{netajiKahen.leadersName}}</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6 setlayout">
+        <div class="row d-flex justify-content-between align-items-center mb-3">
+
+          <span>
+            <strong>HAMARE NETAJI KAHIN</strong>
+          </span>
+          <span>
+            <strong>View All</strong>
+          </span>
+        </div>
+        <div class="row  border-bottom" style="margin-bottom: 15px;">
+
+          <div class="timeline-badge ">
+            <i class="glyphicon glyphicon-check"></i>
+          </div>
+          <div class="timeline-panel">
+            <div class="timeline-body">
+              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis.
+                Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem
+                é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis
+                i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+              </p>
+            </div>
+            <div class="timeline-heading statement">
+              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+            </div>
+
+          </div>
+        </div>
+        <div class="row  border-bottom" style="margin-bottom: 15px;">
+
+          <div class="timeline-badge">
+            <i class="glyphicon glyphicon-check"></i>
+          </div>
+          <div class="timeline-panel">
+            <div class="timeline-body">
+              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis.
+                Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem
+                é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis
+                i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+              </p>
+            </div>
+            <div class="timeline-heading" style="float: right;">
+              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+            </div>
+          </div>
+
+
+        </div>
+      </div> -->
+      </div>
+    </div>
+
+  </section>
+
+  <div class="row paddingRemove">
+    <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6">
+     <!--  <img class="img-responsive advertisment" src="assets/Images/ad_image.png" alt="Hamare Netaji kahen"> -->
+      <img class="img-responsive advertisment" src="{{trendingsectionAd[0].imageUrl}}" alt="Hamare Netaji kahen"/>
+    </div>
+    <div class="col-md-6 col-xs-12 col-sm-6 col-lg-6 text-md-right">
+      <!-- <img class="img-responsive advertisment" src="assets/Images/ad_image.png" alt="Hamare Netaji kahen"> -->
+       <img class="img-responsive advertisment" src="{{trendingsectionAd[0].imageUrl}}" alt="Hamare Netaji kahen"/>
+    </div>
+  </div>

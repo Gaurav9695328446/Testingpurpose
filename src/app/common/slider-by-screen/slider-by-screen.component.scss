@@ -1,0 +1,37 @@
+.left-arrow {
+    left: 0;
+}
+.right-arrow {
+    right: 0;
+}
+
+.arrow {
+    top: 50%;
+    z-index: 1000;
+    padding: 10px;
+    background: rgba(0,0,0,0.3);
+    cursor: pointer;
+    >.icon {
+        color: #ffffff;
+    }
+    transition-duration: 0.5s;
+}
+
+.arrow:hover {
+    background: rgba(0,0,0,0.4);
+}
+
+.translateDiv {
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}
+
+.slideleft {
+    transition-duration: 0.5s;
+    transform: translate(-50px);
+}
+
+.slideright {
+    transition-duration: 0.5s;
+    transform: translate(50px);
+}

@@ -1,0 +1,93 @@
+<div class="container-fluid pt-3">
+  <div class="row justify-content-center mb-3">
+    <app-slider-by-screen class="row leader-contain m-2" *ngIf="trendingProfile.length > 0; else trandingProfileLoadElem" style="margin-left: 100px;margin-right: 100px">
+      <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 px-3 pb-2 removerMargin dsp-inb" *ngFor="let item of trendingProfile" >
+        <div class="thumbnail">
+          <a href="{{item.url}}" target="_blank" style="cursor: pointer;">
+              <img src="{{item.imageUrl}}" style="width:100%; height:100%;">
+          </a>
+        </div>
+      </div>
+    </app-slider-by-screen>
+    <!--loader for tranding leaders-->
+    <ng-template #trandingProfileLoadElem>
+      <div class="row leader-contain m-0 loading w-100">
+        &nbsp;
+      </div>
+    </ng-template>
+  <div class="py-1 m-0">
+    <!-- <div class="row mb-10">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 w-50">
+        <img src="assets/Images/HamareNetajiKahin.png" />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right w-50 d-flex align-items-center justify-content-end">
+
+      </div>
+    </div> -->
+
+    <div class="row mb-10">
+      <!--Navbar-->
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" [collapse]="isCollapsed" style="background: linear-gradient(#145394, #5F95C2);">
+          <ul class="navbar-nav mr-auto toggle-btn" style="margin:auto">
+            <li *ngFor="let mon of monthArray; let i = index">
+              <a href="javascript:void(0)" (click)="getAnniversary(i, anniversaryType)" [ngClass]="{'active': i === getMonth}">{{mon}}</a>
+            </li>
+          </ul>
+
+        </div>
+      </nav>
+
+    </div>
+
+    <div class="row d-flex justify-content-center btn-wrapper mt-2">
+      <button class="button" (click)="getAnniversary(getMonth, key)" *ngFor="let key of aniversaryTypeArrayKeys()" [ngClass]="{'activeAnniversary' : key === anniversaryType }"
+        type="button">{{aniversaryTypeArray[key]}}</button>
+    </div>
+
+    <div class="row justify-content-center b-c-dark" *ngFor="let aniObj of anniversaryObj" style="width:100%; margin:auto; padding: 40px 0 20px;">
+      <div class="col-xs-3 col-sm-3 col-md-3  d-flex align-items-center justify-content-center">
+        <!-- <img src="assets/Images/pawan.jpg" /> -->
+        <div class="aniversary-profile d-flex align-items-center">
+          <img src="{{aniObj.profilePic}}" class="h-100" />
+        </div>
+      </div>
+
+      <div class="col-xs-7 col-sm-7 col-md-7 mt-2">
+        <h4 class="d-flex align-items-center">
+          <b style="color:#135394">{{aniObj.name}}</b>
+        </h4>
+        <span class="d-flex">Date of Birth : {{aniObj.dob | date : 'dd/MM/yyyy'}}</span>
+        <span class="d-flex">{{aniObj.position}}</span>
+        <span class="d-flex">{{aniObj.state}}</span>
+        <span class="d-flex">{{aniObj.party}}</span>
+      </div>
+
+      <div class="col-xs-2 col-sm-2 col-md-2 bottom-column">
+        <div class="justify-content-center ">
+          <rating [(ngModel)]="rate" [max]="max" [readonly]="isReadonly"></rating>
+        </div>
+
+        <div class="d-flex align-items-center bottom-column">
+          <span class="highlight">
+            <button class="btn-like">
+              <i class="fa fa-thumbs-up"></i>
+            </button>
+            <span class="dislike">1234</span>
+            <button class="btn-dislike">
+              <i class="fa fa-thumbs-down"></i>
+            </button>
+            <span class="dislike">123</span>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>

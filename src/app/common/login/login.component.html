@@ -1,0 +1,86 @@
+<div class="modal-body ">
+  <h3 *ngIf="!isShowForgotPwd" class="modal-title text-center" style="color: #7A7A7A; margin-bottom: 30px;"><strong>Login
+      to HamareNetaji.com</strong></h3>
+  <div *ngIf="isShowForgotPwd">
+    <span class="pos-abs p-2 back-btn cursor" title="back to login" (click)="showForgotPassword(false)">
+      <i class="icon ion-md-arrow-round-back fs18 clr2"></i>
+    </span>
+    <h3 class="modal-title text-center" style="color: #7A7A7A; margin-bottom: 30px;"><strong>Forgot Password ?</strong></h3>
+  </div>
+
+  <form [formGroup]="loginForm" method="post" *ngIf="!isShowForgotPwd">
+    <div class="form-group row">
+      <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Username</strong></label>
+      <div class="col-sm-10">
+        <input type="text" id="staticEmail" class="form-control" formControlName="email" placeholder="Username">
+        <label class="alertLable" *ngIf="loginForm.controls['email'].touched">
+          <span *ngIf="loginForm.controls['email'].hasError('required')">Please input your Email</span>
+          <span *ngIf="loginForm.controls['email'].hasError('pattern')">Please input valid Email</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-2 col-form-label"><strong>Password</strong></label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" formControlName="password" id="inputPassword" placeholder="Password">
+        <label *ngIf="loginForm.controls['password'].touched" class="alertLable">
+          <span *ngIf="loginForm.controls['password'].hasError('required')">Please input your Password</span>
+        </label>
+        <label class="flt-r"><a href="javascript:void()" (click)="showForgotPassword(true)">Forgot Password?</a></label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-10">
+        <input type="checkbox" id="remember-me" checked>
+        <label for="remember-me">Remember me</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="col"></span>
+      <button type="submit" class="btn btn-primary mr-4 pl-4 pr-4" [disabled]="loading" (click)="loginUser(loginForm)">
+        {{loading ? 'Signing In' : 'Sign in'}}</button>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-10">
+        <label class="alertLable">
+          <span *ngIf="loginFail">Invalid Email or Password</span>
+        </label>
+      </div>
+
+    </div>
+  </form>
+
+  <form [formGroup]="forgotPasswordForm" method="post" *ngIf="isShowForgotPwd">
+    <div class="form-group row">
+      <label for="fogotEmail" class="col-sm-2 col-form-label"><strong>Email</strong></label>
+      <div class="col-sm-10">
+        <input type="text" id="fogotEmail" class="form-control" formControlName="email" placeholder="Email id">
+        <label class="alertLable" *ngIf="forgotPasswordForm.controls['email'].touched">
+          <span *ngIf="forgotPasswordForm.controls['email'].hasError('required')">Please input your Email</span>
+          <span *ngIf="forgotPasswordForm.controls['email'].hasError('pattern')">Please input valid Email</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <span class="col"></span>
+      <button type="submit" class="btn btn-primary mr-4 pl-4 pr-4" [disabled]="loading" (click)="forgotPassword(forgotPasswordForm)">
+        {{loading ? 'varify...' : 'Forgot'}}</button>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-10">
+        <label class="alertLable">
+          <span *ngIf="forgotPasswordFail">Email does not exist</span>
+        </label>
+      </div>
+    </div>
+  </form>
+</div>

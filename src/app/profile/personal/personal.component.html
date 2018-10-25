@@ -1,0 +1,97 @@
+<div class="p-4">
+  <div class="row">
+    <div>
+      <h6 class="page-header">PERSONAL</h6>
+    </div>
+  </div>
+  <div class="row line-height-2">
+    <div class="col-xs-2 col-md-4 col-lg-3">
+      <strong>Father's Name</strong>
+    </div>
+    <div class="col-xs-8 col-md-8 col-lg-9 ">{{profiledetails.fatherName || 'N/A'}}</div>
+  </div>
+  <div class="row line-height-2">
+    <div class="col-xs-2 col-md-4 col-lg-3">
+      <strong>Mother's Name</strong>
+    </div>
+    <div class="col-xs-8 col-md-8 col-lg-9 ">{{profiledetails.motherName || 'N/A'}}</div>
+  </div>
+  <div class="row line-height-2">
+    <div class="col-xs-2 col-md-4 col-lg-3">
+      <strong>Marital Status</strong>
+    </div>
+    <div class="col-xs-8 col-md-8 col-lg-9 ">{{profiledetails.maritalStatus || 'N/A'}}</div>
+  </div>
+  <div class="row line-height-2">
+    <div class="col-xs-2 col-md-4 col-lg-3">
+      <strong> Date Of Marriage</strong>
+    </div>
+    <div class="col-xs-8 col-md-8 col-lg-9 ">{{profiledetails.dateOfMarriage === 0 ? 'N/A' : profiledetails.dateOfMarriage
+      | date:'dd/MM/yyyy' }}</div>
+  </div>
+  <div class="row line-height-2">
+    <div class="col-xs-2 col-md-4 col-lg-3">
+      <strong>Spouse's Name</strong>
+    </div>
+    <div class="col-xs-8 col-md-8 col-lg-9 ">{{profiledetails.spouseName || 'N/A'}}</div>
+  </div>
+
+  <div class="row line-height-2">
+    <div class="col-xs-2 col-md-4 col-lg-3">
+      <strong>No. Of Children</strong>
+    </div>
+    <div class="col-xs-8 col-md-8 col-lg-9 ">{{profiledetails.noOfChildren === null ? 'N/A' : profiledetails.noOfChildren}}</div>
+  </div>
+  <div class="row line-height-2">
+    <div class="col-xs-2 col-md-4 col-lg-3">
+      <strong>No. Of Criminal Cases</strong>
+    </div>
+    <div class="col-xs-8 col-md-8 col-lg-9 ">{{profiledetails.noOfCriminalCases || 'N/A'}}</div>
+  </div>
+  <div class="row line-height-2">
+    <div class="col-xs-2 col-md-4 col-lg-3">
+      <strong>Special Interests</strong>
+    </div>
+    <div class="col-xs-8 col-md-8 col-lg-9 ">{{profiledetails.specialInterests || 'N/A'}}</div>
+  </div>
+  <div class="row line-height-2">
+    <div class="col-xs-2 col-md-4 col-lg-3">
+      <strong>Countries Visited</strong>
+    </div>
+    <div class="col-xs-8 col-md-8 col-lg-9 ">{{profiledetails.countriesVisted || 'N/A'}}</div>
+  </div>
+  <div class="row line-height-2">
+    <div class="col-xs-2 col-md-4 col-lg-3">
+      <strong>Social & Cultural Activities</strong>
+    </div>
+    <div class="col-xs-8 col-md-8 col-lg-9 ">{{profiledetails.socialAndCulturalActivities || 'N/A'}}</div>
+  </div>
+
+  <div class="row line-height-2">
+    <div class="col-xs-2 col-md-4 col-lg-3">
+      <strong>Sports </strong>
+    </div>
+    <div class="col-xs-8 col-md-8 col-lg-9 ">{{ profiledetails.sports || 'N/A'}}</div>
+  </div>
+
+  <div class="row line-height-2">
+    <div class="col-xs-2 col-md-4 col-lg-3">
+      <strong>Activities </strong>
+    </div>
+    <div class="col-xs-8 col-md-8 col-lg-9 ">{{ profiledetails.activities || 'N/A'}}</div>
+  </div>
+
+  <div class="row line-height-2">
+    <div class="col-xs-2 col-md-4 col-lg-3">
+      <strong>Campaigns </strong>
+    </div>
+    <div class="col-xs-8 col-md-8 col-lg-9 ">{{ profiledetails.campaigns || 'N/A'}}</div>
+  </div>
+
+  <div class="row line-height-2">
+    <div class="col-xs-2 col-md-4 col-lg-3">
+      <strong>Movements </strong>
+    </div>
+    <div class="col-xs-8 col-md-8 col-lg-9 ">{{ profiledetails.movements || 'N/A'}}</div>
+  </div>
+</div>

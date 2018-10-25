@@ -1,0 +1,135 @@
+.thumbnail{
+  height:360px;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.leader-contain {
+  padding:4rem 5rem;
+  display: block!important;
+  white-space: nowrap;
+  position: relative;
+}
+
+@media (max-width: 990px) {
+  .banner {
+    background-size: cover;
+    h1 {
+      font-size: 45px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    background-size: cover;
+    h1 {
+      font-size: 40px;
+    }
+  }
+
+  .leader-contain {
+    padding:4rem 0!important;
+  }
+  
+}
+
+@media (max-width: 640px){
+  .banner {
+    background-size: cover;
+    h1 {
+      font-size: 40px;
+    }
+  }
+}
+
+
+@media (max-width: 480px){
+  .banner {
+    background-size: cover;
+    h1 {
+      font-size: 30px;
+    }
+  }
+}
+.heading{
+  font-size:13px; 
+  text-decoration:none;
+   font-weight:400;
+   margin-bottom: 0px;
+}
+.title{
+  font-size:15px; 
+  text-decoration:none ;
+  font-weight:600
+}
+.name{
+  font-size:20px; 
+  text-decoration:none
+}
+.paddingRemove{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.interview{
+  min-width: 100%;
+  background: #FFFFFF;
+  padding-top: 0 !important;
+  padding-bottom: 0px;
+  .setlayout{
+    padding-left: 4%;padding-right: 4%;
+    .statement{
+      float: right;
+      margin-bottom: 15px;
+    }
+  }
+}
+.tileLayout{
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+}
+.advertisment{
+  height: 192px;
+  width:95%
+}
+.removerMargin{
+  margin-top: 0px !important; 
+}
+.dropdown-menu{
+  min-width: 90%;
+}
+.caption{
+margin-left:10px;
+}
+.vote .highlight{
+  display: inline-block;
+  background: #FFFFFF;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+.vote .highlight .dislike{
+  display: inline-block;
+   padding: 5px 10px;
+}
+.btn-like {
+  border: none;
+  outline: none !important;
+  box-shadow: none;
+  color: #28a745;
+  background: transparent;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.btn-dislike {
+  border: none;
+  outline: none !important;
+  box-shadow: none;
+  color: #dc3545;
+  background: transparent;
+  cursor: pointer;
+  font-size: 2rem;
+}

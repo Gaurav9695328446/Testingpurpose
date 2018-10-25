@@ -1,0 +1,149 @@
+<div class="container-fluid py-2">
+  <div class="row">
+    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+      <a routerLink="/home">
+        <img class="img-responsive logo" src="assets/Images/logo.png" alt="Hamare Netaji kahen">
+      </a>
+    </div>
+    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 d-flex align-items-center">
+      <div class="input-group  pl-4 pr-4 serachBox">
+
+        <ng-template #customItemTemplate let-model="item" let-index="index">
+          <div [style.width.px]="inputRef.nativeElement.clientWidth - 40">
+            {{model.profileDetails.firstName}} {{model.profileDetails.lastName}}
+          </div>
+        </ng-template>
+
+
+        <input #input [(ngModel)]="asyncSelected" style="height: 38px" placeholder="Search leader by name, state or designation"
+          [typeahead]="dataSource" (typeaheadLoading)="changeTypeaheadLoading($event)" typeaheadWaitMs="500" (typeaheadOnSelect)="typeaheadOnSelect($event)"
+          [typeaheadOptionsLimit]="7" spellcheck="false" [typeaheadItemTemplate]="customItemTemplate" class="form-control">
+
+        <div class="input-group-append">
+          <button class="btn btn-primary" (click)="searchApi()" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!message; else profileElem" class="col-xs-2 col-sm-2 col-md-2 col-lg-2 login-bar" style="padding-top: 26px;">
+      <span class="login cursor" (click)="login()">LOGIN</span>
+      <span class="signUp cursor" (click)="register()">SIGN UP</span>
+    </div>
+
+    <ng-template #profileElem>
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 login-bar cursor pr-5" style="padding-top: 5px;" #openPopupElem>
+        <div class="flt-r font-weight-bold fs22 login-profile-arrow">
+          <i class="icon ion-ios-arrow-down"></i>
+        </div>
+
+        <div class="login-profile flt-r algn-cntr">
+          {{myProfile.firstName}} {{myProfile.lastName}}
+        </div>
+
+        <share-profile-popup [openFrom]="openPopupElem" [isShowTitle]="false" style="position: absolute; top:100%; right:0">
+          <ul class="p-0 clr1 text-left share-options user-options mt-4">
+            <li routerLink="/my-profile" routerLinkActive="active">
+              MY PROFILE
+            </li>
+            <li routerLink="/my-leader-profile" routerLinkActive="active">
+              MY LEADER PROFILE
+            </li>
+            <li (click)="logout()">
+              LOG OUT
+            </li>
+          </ul>
+        </share-profile-popup>
+      </div>
+    </ng-template>
+
+
+  </div>
+</div>
+<!------------------------------------------------------------->
+<!------------------ Menu Area Begins-------------------------->
+<!------------------------------------------------------------->
+<!--<nav class="navbar navbar-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav" >
+        <li><a>HOME</a></li>
+        <li><a>ANNIVERSARIES</a></li>
+        <li><a>HAMARE NETAJI KAHEN</a></li>
+        <li><a>UPCOMING ELECTIONS</a></li>
+        <li><a>DIRECTORY</a></li>
+        <li><a>ACHIVIES</a></li>
+      </ul>
+      <ul class="nav navbar-right">
+        <button type="button" class="btn  setbtn" data-toggle="modal" data-target="#loginModal">Sign in </button>
+        <button type="button" class="btn  setbtn"  data-toggle="modal" data-target="#loginModal">Sign up </button>
+      </ul>
+    </div>
+  </div>
+</nav>-->
+
+<!--Banner-->
+<div class="banner img-responsive" [hidden]="!currentNavigation.startsWith('/home')"></div>
+
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
+    aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" [collapse]="isCollapsed" style="background: linear-gradient(#145394, #5F95C2);">
+    <ul class="navbar-nav mr-auto toggle-btn" style="margin:auto">
+      <li>
+        <a routerLink="/home" routerLinkActive="active">HOME</a>
+      </li>
+      <li>
+        <a routerLink="/anninversary" routerLinkActive="active">ANNIVERSARIES</a>
+      </li>
+      <li>
+        <a routerLink="/hamare-netaji-kahen" routerLinkActive="active">HAMARE NETAJI KAHEN</a>
+      </li>
+      <li>
+        <a routerLink="/upcoming-elections" routerLinkActive="active">UPCOMING ELECTIONS</a>
+      </li>
+      <li>
+        <a routerLink="/directory" routerLinkActive="active">DIRECTORY</a>
+      </li>
+      <li>
+        <a routerLink="/achivies" routerLinkActive="active">ARCHIVES</a>
+      </li>
+      <li>
+        <a routerLink="/interviews" routerLinkActive="active">INTERVIEW</a>
+      </li>
+      <li>
+        <a routerLink="/news" routerLinkActive="active">NEWS</a>
+      </li>
+    </ul>
+    <ul class="social-media">
+      <li>
+        <a href="https://www.youtube.com/channel/UCGi66krEyKbHueusmeFjbDA" target="_blank" class="m-0 p-0">
+          <img src="assets/Images/youtube.png" />
+        </a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com/HamareNetajicom/" target="_blank" class="m-0 p-0">
+          <img src="assets/Images/facebook.png" />
+        </a>
+      </li>
+      <li>
+        <a href="https://twitter.com/hamarenetajicom" target="_blank" class="m-0 p-0">
+          <img src="assets/Images/twitter.png" />
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</nav>

@@ -1,0 +1,10 @@
+<div class="position-absolute share-popup  p-3" [hidden]="isPopupHide" (@SharePopupState.done)="hidePopup()" (click)="prepareToHide($event)" [@SharePopupState]="animationState">
+  <div class="w-100 share-title text-left" *ngIf="isShowTitle">
+    {{isHideTitle}}SHARE Profile
+  </div>
+  <ng-content></ng-content>
+</div>
+
+<div class="backdrop" (click)="prepareToHide($event)" [hidden]="isPopupHide">
+  
+</div>

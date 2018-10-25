@@ -1,0 +1,56 @@
+export class Profiledetails {
+
+    activities: String;
+    age: Number;
+    attendenceInHouse: Number;
+    campaigns: String;
+    countriesVisted: String;
+    dateOfDeath: Date;
+    dateOfMarriage: Date;
+    dob: Date;
+    email: String;
+    facebookLink: String;
+    fatherName: String;
+    faxNo: String;
+    firstName: String;
+    fundReleased: String;
+    fundUtilised: String;
+    googlePlus: String;
+    lastName: String;
+    linkedinLink: String;
+    maritalStatus: String;
+    middleName: String;
+    mobileNo: String;
+    motherName: String;
+    movements: String;
+    noOfAssurancesGivenByGovernment: Number;
+    noOfBillIntroduced: Number;
+    noOfChildren: Number;
+    noOfCriminalCases: Number;
+    noOfDebates: Number;
+    noOfQuestionRaised: Number;
+    noOfSpecialMentionsMade: Number;
+    occupation: String;
+    organisation: String;
+    otherInformations: String;
+    permanentAddressLandLine: String;
+    placeOfBirth: Date;
+    placeOrAreaOfInterest: String;
+    position: String;
+    presentAddress: String;
+    presentLandLine: String;
+    profilePic: String;
+    qualifications: String;
+    sal: String;
+    socialAndCulturalActivities: String;
+    specialInterests: String;
+    sports: String;
+    spouseName: String;
+    state: String;
+    totalRecommendedWork: String;
+    totalSanctionedWorks: String;
+    twitterLink: String;
+    website: String;
+    websitePlus: String;
+  
+  }

@@ -1,0 +1,116 @@
+body, html {
+		height: 100%;
+		margin: 0;
+}
+
+
+.topleft {
+		position: absolute;
+		top: 0;
+		left: 16px;
+}
+
+.bottomleft {
+		position: absolute;
+		bottom: 0;
+		left: 16px;
+}
+
+.middle {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+}
+
+hr {
+		margin: auto;
+		width: 40%;
+}
+
+.navbar {
+		width:100%;
+		padding:0px !important;
+		ul li a {
+			font-weight: 900;
+			padding-left: 30px;
+			padding-right: 30px;
+			color: white;
+			font-size: 12px;
+			padding-top: 15px;
+			padding-bottom: 15px;
+			display: block;
+			text-decoration: none;
+			&:hover {
+				background: #145394;
+				border-radius: 4px;
+			}
+			&.active {
+				background: #145394;
+			}
+		}
+	}
+
+	.button{
+		border: 1px solid #135394;
+		color: #135394;
+		background: #ffffff;
+		border-radius: 25px;
+		padding: 3px 10px 3px 10px;
+		cursor: pointer;
+	}
+
+	.btn-wrapper{
+			margin:10px;
+	}
+	.btn-wrapper .button{
+			margin-left:5px;
+		 
+	}
+	.aniversary-profile{
+			//background-image: url("../../assets/Images/pawan.jpg");
+			height: 150px;
+			width: 150px;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+	}
+	.activeAnniversary{
+		background: #135394;
+		color: #fff;
+	}
+
+	.btn-like {
+    align-content:flex-end;
+		border: none;
+		outline: none !important;
+		box-shadow: none;
+		color: #28a745;
+		padding: 5px;
+		background: transparent;
+		cursor: pointer;
+		font-size: 18px;
+	}
+	
+	.btn-dislike {
+	align-content:flex-end;
+		border: none;
+		outline: none !important;
+		box-shadow: none;
+		color: #dc3545;
+		padding: 5px;
+		background: transparent;
+		cursor: pointer;
+		font-size: 18px;
+	}
+
+	.down{
+	position:absolute;
+	}
+
+	.thumbnail{
+  height:150px;
+  width: 100%;
+  background: #ffffff;
+}

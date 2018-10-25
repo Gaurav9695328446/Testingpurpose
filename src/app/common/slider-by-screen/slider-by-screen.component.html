@@ -1,0 +1,11 @@
+<div>
+  <div class="left-arrow arrow pos-abs" (click)="slideProgress('left')" [ngClass]="{slideleft: translateValue >= 0}">
+    <i class="icon ion-ios-arrow-back fs22"></i>
+  </div>
+  <div class="translateDiv" #translateDivElem [ngStyle]="{'transform': translateStyle}">
+    <ng-content></ng-content>
+  </div>
+  <div class="right-arrow arrow pos-abs" (click)="slideProgress('right')" [ngClass]="{slideright: hideRightArrow}">
+    <i class="icon ion-ios-arrow-forward fs22"></i>
+  </div>
+</div>

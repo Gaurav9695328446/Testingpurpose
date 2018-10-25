@@ -1,0 +1,48 @@
+<div class="container p-5 mobile-p-3">
+  <div class="row justify-content-center">
+    <img src="../../../assets/Images/logo.png" class="pwd-logo" />
+  </div>
+  <div class="row my-3">
+    <h4 class="col-md-12 text-center m-0 fs18">CHANGE PASSWORD</h4>
+    <p class="col-md-12 text-center clr2 m-0">You can change your password now.</p>
+  </div>
+  <form [formGroup]="changePwdForm" class="pwd-form">
+    <div class="row justify-content-center">
+      <div class="col-md-12 m-3 text-left">
+        <label class="dsp-inb w120px align-top">Current Password</label>
+        <div class="w60 dsp-inb">
+          <input formControlName="cpwd" type="password" class="w-100 p-1" placeholder="Enter current password" />
+          <div class="form-control-feedback invalid-feedback" [hidden]="!changePwdForm.controls['cpwd'].touched">
+            <span *ngIf="changePwdForm.controls['cpwd'].hasError('required')">Please input your new password</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 m-3 text-left">
+        <label class="dsp-inb w120px align-top">New Password</label>
+        <div class="w60 dsp-inb">
+          <input formControlName="npwd" type="password" class="w-100 p-1" placeholder="Enter new password" />
+          <div class="form-control-feedback invalid-feedback" [hidden]="!changePwdForm.controls['npwd'].touched">
+            <span *ngIf="changePwdForm.controls['npwd'].hasError('required')">Please input your new password</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 m-3 text-left">
+        <label class="dsp-inb w120px align-top">Confirm Password</label>
+        <div class="w60 dsp-inb">
+          <input formControlName="mpwd" type="password" class="w-100 p-1" placeholder="Re-enter new password" />
+          <div class="form-control-feedback invalid-feedback" *ngIf="changePwdForm.controls['mpwd'].touched">
+            <span *ngIf="changePwdForm.controls['mpwd'].hasError('required')">Please re-input your new password</span>
+            <span *ngIf="changePwdForm.controls['mpwd'].hasError('passwordMismatch')">New password and Re-enter password mismatch</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+      <div class="col-md-12 text-center">
+        <button type="submit" (click)="onSubmit(changePwdForm)" class="btn btn-success leader-success-btn w-50" style=" background: #145394">Change
+          Password
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

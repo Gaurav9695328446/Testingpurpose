@@ -1,0 +1,163 @@
+<div class="bgimg comming-soon" style="height: auto !important">
+   <app-slider-by-screen class="row leader-contain m-2" *ngIf="trendingProfile.length > 0; else trandingProfileLoadElem" style="margin-left: 100px;margin-right: 100px">
+      <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 px-3 pb-2 removerMargin dsp-inb" *ngFor="let item of trendingProfile" >
+        <div class="thumbnail">
+          <a href="{{item.url}}" target="_blank" style="cursor: pointer;">
+              <img src="{{item.imageUrl}}" style="width:100%; height:100%;">
+          </a>
+        </div>
+      </div>
+    </app-slider-by-screen>
+    <!--loader for tranding leaders-->
+    <ng-template #trandingProfileLoadElem>
+      <div class="row leader-contain m-0 loading w-100">
+        &nbsp;
+      </div>
+    </ng-template>
+   <section style="display:inline-block;position:relative;width: 70%;padding: 40px;background-color: #F3F9FF;height: auto;left: 15%;margin-top: 30px">
+     <span style="font-size: 18px"><strong>Select Elections</strong></span>
+      <div style="position: relative;">
+       <div class="form">
+        <div class="inputGroup" ng-model="selectedItem" style="margin:10px auto;text-align: center;padding: 20px"> 
+      <span class="textspan" style="border-style:solid;border-width: 1px;border-color: #2C3E88;padding: 15px;margin:15px;font-size: 14px">
+      <input class="with-gap" type="radio" name="electiontype" value="General Elections" (click)="setradio('General Elections')" ng-model>GENERAL ELECTIONS
+    </span> 
+    <span class="textspan" style="border-style:solid;border-width: 1px;border-color: #2C3E88;padding: 15px;margin:15px;font-size: 14px">
+      <input  class="with-gap" type="radio" name="electiontype" value="Assembly Elections" [checked]='true' (click)="setradio('Assembly Elections')" ngModel>ASSEMBLY ELECTIONS
+   </span>
+   </div>
+     </div> 
+   </div>
+   <span style="font-size: 16px"><strong> Elections</strong></span>
+   <!-- container for assembly elections -->
+      <ng-container *ngIf="assembly" >
+      <div class="row" style="margin-left: 7%;margin-bottom: 10px;margin-top: 25px"> <button style="width: 90%;text-align: left;font-size: 18px" class="btn" (click)="showData('Rajasthan Assembly Election 2018')"> Rajasthan Assembly Election 2018
+       <i style="float: right;font-size: 30px" class="fa fa-arrow-circle-right"></i>
+     </button>
+   </div>
+      <div class="row" style="margin-left: 7%;margin-bottom: 10px;margin-top: 10px"> <button style="width: 90%;text-align: left;font-size: 18px" class="btn" (click)="showData('Madhya Pradesh Assembly Election 2018')"> Madhya Pradesh Assembly Election 2018
+       <i style="float: right;font-size: 30px" class="fa fa-arrow-circle-right"></i>
+     </button>
+   </div>
+    <div class="row" style="margin-left: 7%;margin-bottom: 10px;margin-top: 10px"> <button style="width: 90%;text-align: left;font-size: 18px" class="btn" (click)="showData('Telangana Assembly Election 2018')"> Telangana Assembly Election 2018
+       <i style="float: right;font-size: 30px" class="fa fa-arrow-circle-right"></i>
+     </button>
+   </div>
+    <div class="row" style="margin-left: 7%;margin-bottom: 10px;margin-top: 10px"> <button style="width: 90%;text-align: left;font-size: 18px" class="btn" (click)="showData('Chhatisgarh Assembly Election 2018')"> Chhatisgarh Assembly Election 2018
+       <i style="float: right;font-size: 30px" class="fa fa-arrow-circle-right"></i>
+     </button>
+   </div>
+   <div class="row" style="margin-left: 7%;margin-bottom: 10px;margin-top: 10px"> <button style="width: 90%;text-align: left;font-size: 18px" class="btn" (click)="showData('Mizoram Assembly Election 2018')"> Mizoram Assembly Election 2018
+       <i style="float: right;font-size: 30px" class="fa fa-arrow-circle-right"></i>
+     </button>
+   </div>
+ </ng-container>
+
+ <!-- container for general elections -->
+  <ng-container *ngIf="general" >
+      <div class="row" style="margin-left: 7%;margin-bottom: 10px;margin-top: 25px;"> 
+        <button style="width: 90%;text-align: left;font-size: 18px" class="btn" (click)="showData('Rajasthan General Election 2018')"> Rajasthan General Election 2018
+       <i style="float: right;font-size: 30px" class="fa fa-arrow-circle-right"></i>
+     </button>
+   </div>
+ </ng-container>
+
+ <!-- container for election items-->
+
+   <ng-container *ngIf="selectedItem" >
+    <div class="row" style="margin-left: 5%;margin-bottom:10px;margin-top: 25px;">
+      <button  style="width: 93%;text-align: left;font-size: 16px;background-color: #2C3E88" class="btn">{{assemblyname}}</button>
+    </div>
+    
+ <table style="width: 90%">
+  <tr>
+    <th>S.NO</th>
+    <th>ASSEMBLY NO.</th>
+    <th>ASSEMBLY NAME</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>1</td>
+    <td><a (click)="openMember()" style="cursor: pointer;">Sadulshahar</a></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>2</td>
+    <td><a (click)="openMember()" style="cursor: pointer;">Ganganagar</a></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>3</td>
+    <td><a (click)="openMember()" style="cursor: pointer;">Karanpur</a></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>4</td>
+    <td><a (click)="openMember()">Suratgarh</a></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>5</td>
+    <td><a (click)="openMember()">Raisinghnagar</a></td>
+  </tr>
+</table>
+   </ng-container>
+
+   <!-- container for item information -->
+
+ <ng-container *ngIf="itemInformation" >
+   <div class="row" style="margin-left:0.5px;margin-bottom:10px;margin-top: 25px;">
+      <button  style="width: 98.5%;text-align: left;font-size: 16px;background-color: #2C3E88" class="btn">{{assemblyname}}</button>
+    </div>
+
+  <div class="innerRow" style="background-color: white;padding: 15px;margin-top: 8px;margin-bottom: 8px">
+  <div class="column">
+    <span style="margin-right: 57px">Name of State</span><span>:   Rajasthan</span><br>
+   <span style="margin-right: 9px">Name of Constituency</span><span>:   Rajasthan Assembly Election</span><br>
+   <span style="margin-right: 53px">Date of Joining</span><span>:   12/12/2018</span><br>
+   <span style="margin-right: 51px">Date of election</span><span>:   12/12/2018</span><br>
+   <span style="margin-right: 60px">Date of Result</span><span>:   12/12/2018</span>
+  </div>
+</div>
+ <table class="tabsize">
+  <tr>
+    <th>S.NO</th>
+    <th>CANDIDATE NAME</th>
+    <th>PARTY NAME</th>
+    <th>PARTY MANIFESTO</th>
+    <th>PERSONAL MANIFESTO</th>
+    <th>AFFIDAVIT</th>
+    <th>RESULT</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Alfreds Futterkiste</td>
+    <td>BJP</td>
+    <td><a (click)="openMember()">pdf</a></td>
+    <td><a (click)="openMember()">pdf</a></td>
+    <td><a (click)="openMember()">N/A</a></td>
+    <td>Won by 121 votes</td>
+  </tr>
+  <tr>
+   <td>2</td>
+    <td>Alfreds Futterkiste</td>
+    <td>BJP</td>
+    <td><a (click)="openMember()">pdf</a></td>
+    <td><a (click)="openMember()">pdf</a></td>
+    <td><a (click)="openMember()">N/A</a></td>
+    <td>Won by 121 votes</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Alfreds Futterkiste</td>
+    <td>BJP</td>
+    <td><a (click)="openMember()">pdf</a></td>
+    <td><a (click)="openMember()">pdf</a></td>
+    <td><a (click)="openMember()">N/A</a></td>
+    <td>Won by 121 votes</td>
+  </tr>
+</table>
+   </ng-container>
+   </section>
+</div>
+

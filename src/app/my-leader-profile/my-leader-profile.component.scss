@@ -1,0 +1,35 @@
+input, select {
+    max-width: 350px;
+    height: 35px!important;
+    padding: 0 5px;
+}
+
+label {
+    display: block;
+    font-size: 0.8rem;
+    color: #727171;
+    font-weight: 500;
+}
+
+.leader-success-btn {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+@media screen and (max-width: 768px){
+	.my-leader-profile-container > .row {
+        padding: 0 15px!important;
+    }
+    
+    .my-leader-profile-container > .row > div {
+        padding-top: 1rem;
+    }
+
+    label {
+        margin-bottom: 0.2rem;
+    }
+    .area-interest {
+        float: left!important;
+        width: 100%!important;
+    }
+}

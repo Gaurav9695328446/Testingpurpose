@@ -1,0 +1,32 @@
+<div class="container-fluid py-3 my-profile-container">
+  <div class="row my-detail p-3">
+    <div class="p-0 pr-3">
+      <div class="profile-image-size">
+        <app-profile-image-upload></app-profile-image-upload>
+      </div>
+    </div>
+    <div class="clr2 pt-2">
+      <h3 class="clr3 fs22">{{myProfile.name}}</h3>
+      <div class="pt-2">
+        <div>{{myProfile.mobile}}</div>
+        <div>{{myProfile.email}}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row change-pwd-option my-3">
+    <div class="col-md-12 col-sm-12">
+      <a href="javascript:void(0)" class="float-right" (click)="showChangePwd()">CHANGE PASSWORD</a>
+    </div>
+  </div>
+
+  <div class="row text-center mt-5">
+    <div class="col-md-12 col-sm-12 clr2 fs22">
+      <p>Are you a Leader and want to be listed on HamareNetaji.com</p>
+    </div>
+    <div class="col-md-12 col-sm-12">
+      <button class="btn btn-success px-5" style="background: #145394" routerLink="/my-leader-profile">CREATE YOUR LEADER
+        PROFILE</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="profile-image-container d-flex align-items-center justify-content-center cursor" (click)="fileElem.click()">
+  <div class="text-center" [hidden]="imagePath">
+    <i class="icon ion-ios-camera"></i>
+    <div class="icon-text">Add Profile Picture</div>
+  </div>
+
+  <img [src]="imagePath" [hidden]="!imagePath" class="w-100 mh100"/>
+  <input type="file" #fileElem class="dsp-n" />
+</div>

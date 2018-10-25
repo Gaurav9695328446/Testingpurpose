@@ -1,0 +1,33 @@
+<div class="row leader-contain">
+  <div class="col-md-6 col-xs-12 col-sm-6 col-lg-3 px-3 pb-2 removerMargin" *ngFor="let item of trendingProfile;" [routerLink]="['/profile',item.id]">
+    <div class="thumbnail">
+      <a [routerLink]="['/profile',item.id]">
+        <div *ngIf="item.profileDetails.profilePic;else other_content">
+          <img src="{{item.profileDetails.profilePic}}" style="width:100%; height:250px;" />
+        </div>
+        <ng-template #other_content>
+          <img src="assets/Images/d.jpg" alt="Narendra Modi" style="width:100%; height:auto;">
+        </ng-template>
+      </a>
+      <div class="caption">
+        <strong class="name ellipsis">{{item.profileDetails.firstName}} {{item.profileDetails.lastName}}</strong>
+        <p class="heading ellipsis"> {{item.profileDetails.position}}&nbsp;</p>
+        <p class="heading ellipsis">{{item.profileDetails.state}}</p>
+      </div>
+      <div class="row removerMargin px-2">
+        <div class="vote col-xs-6 col-sm-6 col-md-6 w-50">
+          <button class="btn-like" (click)="likeProfile()">
+            <i class="fa fa-thumbs-up"></i>
+          </button>
+          <span class="dislike">{{item.like}}</span>
+        </div>
+        <div class="vote col-xs-6 col-sm-6 col-md-6 w-50">
+          <button class="btn-dislike" (click)="dislikeProfile()">
+            <i class="fa fa-thumbs-down"></i>
+          </button>
+          <span class="dislike">{{item.dislike}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

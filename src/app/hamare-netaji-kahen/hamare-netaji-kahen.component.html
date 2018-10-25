@@ -1,0 +1,47 @@
+<div class="container-fluid pt-3">
+  <div class="row justify-content-center mb-3">
+    <app-slider-by-screen class="row leader-contain m-2" *ngIf="trendingProfile.length > 0; else trandingProfileLoadElem" style="margin-left: 100px;margin-right: 100px">
+      <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 px-3 pb-2 removerMargin dsp-inb" *ngFor="let item of trendingProfile" >
+        <div class="thumbnail">
+          <a href="{{item.url}}" target="_blank" style="cursor: pointer;">
+              <img src="{{item.imageUrl}}" style="width:100%; height:100%;">
+          </a>
+        </div>
+      </div>
+    </app-slider-by-screen>
+   <!-- loader for tranding leaders -->
+   <ng-template #trandingProfileLoadElem>
+      <div class="row leader-contain m-0 loading w-100">
+        &nbsp;
+      </div>
+    </ng-template> 
+ 
+  <div class="jumbotron py-1 m-4" style="width: 100%">
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 w-50">
+        <img src="assets/Images/HamareNetajiKahin.png" />
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right w-50 d-flex align-items-center">
+
+      </div>
+    </div>
+
+    <div class="row justify-content-center bg-clr-1 m-0">
+      <div class="col-md-10 col-xs-10 col-sm-10 setlayout my-5">
+        <div class="row" *ngFor="let data of hamareNetaji; let last = last" [ngClass]="{'bdr-brm-2': !last}">
+          <div class="col-xs-12 col-sm-12 col-md-12 mt-5">
+            <h4 class="d-flex align-items-center">
+              <b>{{data.title}}</b>
+            </h4>
+            <p>{{data.descriptions}}</p>
+            <div class="text-right w-100 clearfix mb-3">
+              <span class="flt-l pt-1">{{data.createdOn | date : 'dd/MM/yyyy'}}</span>
+              <h4 class="flt-r">{{data.leadersName}}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

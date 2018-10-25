@@ -1,0 +1,117 @@
+<div class="container-fluid pt-3">
+  <div class="row justify-content-center mb-3">
+    <app-slider-by-screen class="row leader-contain m-2" *ngIf="trendingProfile.length > 0; else trandingProfileLoadElem" style="margin-left: 100px;margin-right: 100px">
+      <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 px-3 pb-2 removerMargin dsp-inb" *ngFor="let item of trendingProfile" >
+        <div class="thumbnails">
+          <a href="{{item.url}}" target="_blank" style="cursor: pointer;">
+              <img src="{{item.imageUrl}}" style="width:100%; height:100%;">
+          </a>
+        </div>
+      </div>
+    </app-slider-by-screen>
+    <!--loader for tranding leaders-->
+    <ng-template #trandingProfileLoadElem>
+      <div class="row leader-contain m-0 loading w-100">
+        &nbsp;
+      </div>
+    </ng-template>
+
+
+  <div class="jumbotron py-1 m-4" style="width: 100%">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <!-- <p>
+          <strong>Trending Leaders</strong>
+        </p> -->
+        <img src="assets/Images/selfie_with_HamereNetaji.png" />
+      </div>
+    </div>
+    <div class="row px-5 mx-5 my-3 margin-mobile-x-0 padding-mobile-0">
+      <div class="w70 mar-r-5 mobile-w-100 margin-mobile-x-0">
+        <div class="thumbnail" *ngIf="newsList.length > 0">
+          <div class="embed-responsive" style="height: 520px">
+            <div class="embed-responsive embed-responsive-16by9 shadow-none">
+              <iframe class="embed-responsive-item" [src]="newsList[0].youtubeLink | safe : 'resourceUrl'" allowfullscreen></iframe>
+            </div>
+            <!-- <a [href]="newsList[0].youtubeLink" target="_blank">
+              <img [src]="newsList[0].thumbNailImage" class="w-100 img-fluid h-100" />
+            </a> -->
+          </div>
+          <div class="p-2">
+            <h4 class="ellipsis">{{newsList[0].title}}</h4>
+            <p class="clr2 m-0">{{newsList[0].description}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="w20 mobile-w-100">
+        <div class="flex-md-column">
+          <div class="thumbnail small mb-10 mobile-mt-10" *ngIf="newsList.length > 1">
+            <div class="embed-responsive" style="height: 150px">
+              <div class="embed-responsive embed-responsive-16by9 shadow-none">
+                 <iframe class="embed-responsive-item" [src]="newsList[0].youtubeLink | safe : 'resourceUrl'" allowfullscreen></iframe>
+              </div>
+              <!-- <a [href]="newsList[1].youtubeLink" target="_blank">
+                <img [src]="newsList[1].thumbNailImage" class="w-100 img-fluid h-100" />
+              </a> -->
+            </div>
+            <div class="p-2">
+              <h4 class="ellipsis">{{newsList[1].title}}</h4>
+              <p class="clr2 m-0">{{newsList[1].description}}</p>
+            </div>
+          </div>
+          <div class="thumbnail small mb-10" *ngIf="newsList.length > 2">
+            <div class="embed-responsive" style="height: 150px">
+              <div class="embed-responsive embed-responsive-16by9 shadow-none">
+                <iframe class="embed-responsive-item" [src]="newsList[0].youtubeLink | safe : 'resourceUrl'" allowfullscreen></iframe>
+              </div>
+              <!-- <a [href]="newsList[2].youtubeLink" target="_blank">
+                <img [src]="newsList[2].thumbNailImage" class="w-100 img-fluid h-100" />
+              </a> -->
+            </div>
+            <div class="p-2">
+              <h4 class="ellipsis">{{newsList[2].title}}</h4>
+              <p class="clr2 m-0">{{newsList[2].description}}</p>
+            </div>
+          </div>
+          <div class="thumbnail small" *ngIf="newsList.length > 3">
+            <div class="embed-responsive" style="height: 150px">
+              <div class="embed-responsive embed-responsive-16by9 shadow-none">
+                <iframe class="embed-responsive-item" [src]="newsList[0].youtubeLink | safe : 'resourceUrl'" allowfullscreen></iframe>
+              </div>
+              <!-- <a [href]="newsList[3].youtubeLink" target="_blank">
+                <img [src]="newsList[3].thumbNailImage" class="w-100 img-fluid h-100" />
+              </a> -->
+            </div>
+            <div class="p-2">
+              <h4 class="ellipsis">{{newsList[3].title}}</h4>
+              <p class="clr2 m-0">{{newsList[3].description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="row px-5 mx-5 margin-mobile-0 padding-mobile-0">
+      <ng-container *ngFor="let item of newsList; let index = index">
+        <div class="w20 mar-r-5 my-3 mobile-w-100 margin-mobile-0" *ngIf="index > 3">
+          <div class="thumbnail small mb-10">
+            <div class="embed-responsive" style="height: 150px">
+              <div class="embed-responsive embed-responsive-16by9 shadow-none">
+                <iframe class="embed-responsive-item" [src]="item.youtubeLink | safe : 'resourceUrl'" allowfullscreen></iframe>
+              </div>
+              <!-- <a [href]="item.youtubeLink" target="_blank">
+                <img [src]="item.thumbNailImage" class="w-100 img-fluid h-100" />
+              </a> -->
+            </div>
+            <div class="p-2">
+              <h4 class="ellipsis">{{newsList[4].title}}</h4>
+              <p class="clr2 m-0">{{newsList[4].title}}</p>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  </div>
+</div>
+

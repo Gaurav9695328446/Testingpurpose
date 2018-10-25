@@ -1,0 +1,24 @@
+.max-h-90 {
+    max-height: 90%;
+}
+
+.dialog-col {
+    box-shadow: 5px 10px 50px 5px #808080;
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+}
+
+.close-icon {
+    float: right;
+    font-size: 1.6rem;
+    line-height: 0;
+    padding: 5px 10px;
+}
+
+.close-icon:hover {
+    background: rgba(0,0,0,0.1);
+}
+
+.dialog-box {
+    z-index: 10000;
+}

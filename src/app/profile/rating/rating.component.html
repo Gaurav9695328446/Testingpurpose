@@ -1,0 +1,76 @@
+<div class="p-4">
+  <div class="row">
+    <div>
+      <h6 class="page-header">RATING</h6>
+    </div>
+  </div>
+
+  <div class="row line-height-2">
+    <div class="col-xs-3 col-md-3 col-lg-3">
+      <strong>Overall Rating</strong>
+    </div>
+    <div class="col-xs-7 col-md-2 col-lg-2">
+      <rating [max]="max" [(ngModel)]="overAllRating" [readonly]="isReadonly"></rating>
+    </div>
+    <div class="col-xs-3 col-md-3 col-lg-3">
+      <strong>Rated by:</strong>
+    </div>
+    <div class="col-xs-3 col-md-2 col-lg-2 ">{{noOfPersonRated}} People</div>
+  </div>
+  <div class="row line-height-2">
+    <div class="col-xs-3 col-md-3 col-lg-3">
+      <strong>Personal Image</strong>
+    </div>
+    <div class="col-xs-7 col-md-2 col-lg-2 ratings ">
+      <rating [max]="max" [(ngModel)]="ratings.pImageRating" [readonly]="isReadonly"></rating>
+    </div>
+    <div class="col-xs-3 col-md-3 col-lg-3">
+      <strong>Accessibility</strong>
+    </div>
+    <div class="col-xs-7 col-md-3 col-lg-3 ">
+      <rating [max]="max" [(ngModel)]="ratings.accessRating" [readonly]="isReadonly"></rating>
+    </div>
+  </div>
+  <div class="row line-height-2">
+    <div class="col-xs-3 col-md-3 col-lg-3">
+      <strong>Party/Organisation Image</strong>
+    </div>
+    <div class="col-xs-7 col-md-2 col-lg-2">
+      <rating [max]="max" [(ngModel)]="ratings.partyImageRating" [readonly]="isReadonly"></rating>
+    </div>
+    <div class="col-xs-3 col-md-3 col-lg-3">
+      <strong>Activeness</strong>
+    </div>
+    <div class="col-xs-7 col-md-3 col-lg-3 ">
+      <rating [max]="max" [(ngModel)]="ratings.activeRating" [readonly]="isReadonly"></rating>
+    </div>
+  </div>
+  <div class="row line-height-2">
+    <div class="col-xs-3 col-md-3 col-lg-3">
+      <strong>Qualification</strong>
+    </div>
+    <div class="col-xs-7 col-md-2 col-lg-2">
+      <rating [max]="max" [(ngModel)]="ratings.qualificationRating" [readonly]="isReadonly"></rating>
+    </div>
+    <div class="col-xs-3 col-md-3 col-lg-3">
+      <strong>Work Performance</strong>
+    </div>
+    <div class="col-xs-7 col-md-3 col-lg-3 ">
+      <rating [max]="max" [(ngModel)]="ratings.workRating" [readonly]="isReadonly"></rating>
+    </div>
+  </div>
+  <div class="row line-height-2">
+    <div class="col-xs-3 col-md-3 col-lg-3">
+      <strong>Honesty</strong>
+    </div>
+    <div class="col-xs-7 col-md-2 col-lg-2">
+      <rating [max]="max" [(ngModel)]="ratings.honestyRating" [readonly]="isReadonly"></rating>
+    </div>
+    <div class="col-xs-3 col-md-3 col-lg-3">
+      <strong>Transparency</strong>
+    </div>
+    <div class="col-xs-7 col-md-3 col-lg-3 ">
+      <rating [max]="max" [(ngModel)]="ratings.transparacyRating" [readonly]="isReadonly"></rating>
+    </div>
+  </div>
+</div>

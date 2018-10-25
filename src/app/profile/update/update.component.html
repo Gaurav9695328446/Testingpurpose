@@ -1,0 +1,36 @@
+<div class="p-4">
+  <div class="row">
+    <div>
+      <h6 class="page-header">UPDATES</h6>
+    </div>
+  </div>
+  <section class="edit-site">
+    <div class="container card p-3">
+      <div class="jumbotron row m-0" style="background:white;">
+        <div class="form-group col-sm-12 col-md-10 m-0 p-0">
+          <textarea rows="5" [disabled]="likeCounter > 1000 ? null : true" placeholder="The update section will be visible after 1000+ likes/dislikes" class="w-100 p-0 bdr-0 update-profile-input"></textarea>
+        </div>
+        <div class="col-sm-12 col-md-2 p-0 d-flex align-items-center justify-content-center">
+          <button type="button" [attr.disabled]="likeCounter > 1000 ? null : true" class="btn btn-primary btn-sm w60" style="float: right;background:#145394 ; color:white;">
+            Post
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--<section class="edit-site">
+    <div class="container card">
+      <div class="jumbotron" style="background:white;">
+        <div class="form-group">
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <span class="count-badge" style="color: #cccccc;">
+              <a href="#" class="fa fa-camera" style="color: #cccccc;"></a> AddPhotos</span>
+        <br/>
+        <button type="button" class="btn btn-primary btn-sm" style="float: right;background:#145394 ; color:white">
+          Post
+        </button>
+      </div>
+    </div>
+  </section>-->
+</div>

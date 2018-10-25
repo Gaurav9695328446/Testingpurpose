@@ -1,0 +1,403 @@
+<form [formGroup]="profileForm" class="container-fluid p-5 my-leader-profile-container">
+  <div class="row">
+    <div class="col-sm-6 col-xs-12 col-md-6">
+      <h4>MY LEADER PROFILE</h4>
+    </div>
+    <div class="col-sm-6 col-xs-12 col-md-6">
+      <div class="profile-image-size">
+        <app-profile-image-upload (uploadCallback)="imageUploadCallback($event)"></app-profile-image-upload>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-5">
+
+    <div class="col-md-1 col-sm-6 col-xs-12">
+      <label>Salutation</label>
+      <select class="form-control" formControlName="sal" id="salutation">
+        <option>Mr.</option>
+        <option>Mrs.</option>
+        <option>Kumari</option>
+        <option>Dr.</option>
+        <option>Prof.</option>
+        <option>Smt.</option>
+        <option>Shri</option>
+      </select>
+      <div class="form-control-feedback invalid-feedback" *ngIf="profileForm.controls['sal'].touched">
+        <span *ngIf="profileForm.controls['sal'].hasError('required')">Please select one value</span>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <label>First Name</label>
+      <input type="text" class="form-control" name="firstName" id="firstName" formControlName="firstName" placeholder="First Name"
+        required>
+      <div class="form-control-feedback invalid-feedback" *ngIf="profileForm.controls['firstName'].touched">
+        <span *ngIf="profileForm.controls['firstName'].hasError('required')">Please input your first Name</span>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-12 col-xs-12">
+      <label>Middle Name</label>
+      <input type="text" class="w-100" name="middleName" formControlName="middleName">
+    </div>
+
+    <div class="col-md-3 col-sm-12 col-xs-12">
+      <label>Last Name</label>
+      <input type="text" class="w-100" formControlName="lastName">
+      <div class="form-control-feedback invalid-feedback" *ngIf="profileForm.controls['lastName'].touched">
+        <span *ngIf="profileForm.controls['lastName'].hasError('required')">Please input your last Name</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-3 col-sm-12 col-xs-12">
+      <label>Position</label>
+      <input type="text" class="w-100" formControlName="position">
+      <div class="form-control-feedback invalid-feedback" *ngIf="profileForm.controls['position'].touched">
+        <span *ngIf="profileForm.controls['position'].hasError('required')">Please input Postion</span>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-12 col-xs-12">
+      <label>Party/organisation</label>
+      <select class="form-control" formControlName="organisation" placeholder="Party/organisation">
+        <option *ngFor="let party of partyList" [value]="party.name">{{party.name}}</option>
+      </select>
+      <div class="form-control-feedback invalid-feedback" *ngIf="profileForm.controls['organisation'].touched">
+        <span *ngIf="profileForm.controls['organisation'].hasError('required')">Please input Party/organisation </span>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-12 col-xs-12">
+      <label>State</label>
+      <select class="form-control" formControlName="state" placeholder="Party">
+        <option *ngFor="let state of stateList" [value]="state.name">{{state.name}}</option>
+      </select>
+      <div class="form-control-feedback invalid-feedback" *ngIf="profileForm.controls['state'].touched">
+        <span *ngIf="profileForm.controls['state'].hasError('required')">Please input your State </span>
+      </div>
+    </div>
+
+  </div>
+
+  <!--post Held-->
+  <div class="row d-flex align-items-center px-5 pt-3" formArrayName="posHelds">
+    <div *ngFor="let position of posHelds.controls; let pointIndex=index" [formGroupName]="pointIndex" class="w-100 row mx-0">
+      <div class="col-md-3 col-sm-12 col-xs-12">
+        <label>Post held</label>
+        <input type="text" class="w-100" formControlName="held">
+      </div>
+      <div class="col-md-3 col-sm-12 col-xs-12">
+        <label>From Date</label>
+        <input type="text" class="w-100" formControlName="from" placeholder="DD/MM/YYYY" readonly bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }">
+      </div>
+      <div class="col-md-3 col-sm-12 col-xs-12">
+        <label>To Date</label>
+        <input type="text" class="w-100" formControlName="to" placeholder="DD/MM/YYYY" readonly bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }">
+      </div>
+      <div class="col-md-1 col-sm-12 col-xs-12">
+        <button class="float-right" (click)="addPosition()" *ngIf="pointIndex == posHelds.controls.length -1">+</button>
+        <button class="float-right" (click)="deletePosition(pointIndex)">-</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Qualification</label>
+      <input type="text" class="w-100" formControlName="qualifications">
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Occupation</label>
+      <input type="text" class="w-100" formControlName="occupation">
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Father's Name</label>
+      <input type="text" class="w-100" formControlName="fatherName">
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Mother's Name</label>
+      <input type="text" class="w-100" formControlName="motherName">
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Date of Birth</label>
+      <input type="text" class="w-100" formControlName="dob" (ngModelChange)="agecalculate($event)" readonly bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" placeholder="DD/MM/YYYY">
+      <div class="form-control-feedback invalid-feedback" *ngIf="profileForm.controls['dob'].touched">
+        <span *ngIf="profileForm.controls['dob'].hasError('required')">Please input your date of birth</span>
+      </div>
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Age</label>
+      <input type="number" class="w-100" formControlName="age" id="age">
+      <div class="form-control-feedback invalid-feedback" *ngIf="profileForm.controls['age'].touched">
+        <span *ngIf="profileForm.controls['age'].hasError('required')">Please input your age</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Place of Birth</label>
+      <input type="text" class="w-100" formControlName="placeOfBirth" id="placeofBirth">
+      <div class="form-control-feedback invalid-feedback" *ngIf="profileForm.controls['placeOfBirth'].touched">
+        <span *ngIf="profileForm.controls['placeOfBirth'].hasError('required')">Please input your place of birth</span>
+      </div>
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label for="maritalStatus">Marital Status:</label>
+      <select class="form-control" formControlName="maritalStatus" id="maritalStatus">
+        <option>Select Marital Status</option>
+        <option>Married</option>
+        <option>Single</option>
+        <option>Divorcee</option>
+        <option>Widow</option>
+        <option>Widower</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label for="dateofMarriage">Date of Marriage</label>
+      <input type="text" class="w-100" formControlName="dateOfMarriage" placeholder="DD/MM/YYYY" readonly bsDatepicker [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }">
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label for="spouseName">Spouse's Name</label>
+      <input type="text" class="form-control" formControlName="spouseName">
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label for="numberofChildren">Number of Children:</label>
+      <input type="text" class="w-100" formControlName="noOfChildren">
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label for="dateofDeath">Date of Death (for Deceased Person):</label>
+      <input type="text" class="w-100" formControlName="dateOfDeath" bsDatepicker [bsConfig]="{ dateInputFormat: 'DD-MM-YY' }">
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label for="numberofcriminalcases">Criminal cases registered:</label>
+      <input type="text" class="w-100" formControlName="noOfCriminalCases">
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Place / Area of interest</label>
+      <input type="text" formControlName="placeOrAreaOfInterest" class="w-100">
+      <div class="form-control-feedback invalid-feedback" *ngIf="profileForm.controls['placeOrAreaOfInterest'].touched">
+        <span *ngIf="profileForm.controls['placeOrAreaOfInterest'].hasError('required')">Please input your place or area
+          Of interest</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Present Address</label>
+      <input type="text" class="w-100" formControlName="presentAddress">
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Present Address Landline Number</label>
+      <input type="text" class="w-100" id="presentLandLine">
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Permanent Address</label>
+      <input type="text" class="w-100" formControlName="permanentAddress">
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Permanent Address Landline No.</label>
+      <input type="text" class="w-100" id="permanentAddressLandLine">
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>FAX No</label>
+      <input type="text" class="w-100" formControlName="faxNo">
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Mobile No</label>
+      <input type="text" class="w-100" formControlName="mobileNo">
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Email id</label>
+      <input type="text" class="w-100" formControlName="email">
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Website</label>
+      <input type="text" class="w-100" formControlName="website">
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Follow</label>
+      <input type="text" class="w-100" placeholder="Twitter Link" formControlName="twitterLink">
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label></label>
+      <input type="text" class="w-100" placeholder="Facebook Link" formControlName="facebookLink">
+      <div class="form-control-feedback invalid-feedback" *ngIf="profileForm.controls['facebookLink'].touched">
+        <span *ngIf="profileForm.controls['facebookLink'].hasError('pattern')">Please input valid Facebook link</span>
+      </div>
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label></label>
+      <input type="text" class="w-100" placeholder="Youtube link" formControlName="youtubeLink">
+      <div class="form-control-feedback invalid-feedback" *ngIf="profileForm.controls['youtubeLink'].touched">
+        <span *ngIf="profileForm.controls['youtubeLink'].hasError('pattern')">Please input valid Youtube link</span>
+      </div>
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label></label>
+      <input type="text" class="w-100" placeholder="Instagram link" formControlName="instagramLink">
+      <div class="form-control-feedback invalid-feedback" *ngIf="profileForm.controls['instagramLink'].touched">
+        <span *ngIf="profileForm.controls['instagramLink'].hasError('pattern')">Please input valid Instagram link</span>
+      </div>
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label></label>
+      <input type="text" class="w-100" placeholder="Linkedin link" formControlName="linkedinLink">
+      <div class="form-control-feedback invalid-feedback" *ngIf="profileForm.controls['linkedinLink'].touched">
+        <span *ngIf="profileForm.controls['linkedinLink'].hasError('pattern')">Please input valid Linkden link</span>
+      </div>
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label></label>
+      <input type="text" class="w-100" placeholder="Google Plus link" formControlName="googlePlus">
+      <div class="form-control-feedback invalid-feedback" *ngIf="profileForm.controls['googlePlus'].touched">
+        <span *ngIf="profileForm.controls['googlePlus'].hasError('pattern')">Please input valid Google Plus link</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-10 col-sm-12 col-xs-12">
+      <label>Social & Cultural Activities:</label>
+      <textarea type="text" class="w-100" formControlName="socialAndCulturalActivities"></textarea>
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-10 col-sm-12 col-xs-12">
+      <label>Special Interests:</label>
+      <textarea type="text" class="w-100" formControlName="specialInterests"></textarea>
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-10 col-sm-12 col-xs-12">
+      <label>Sports:</label>
+      <textarea type="text" class="w-100" formControlName="specialInterests"></textarea>
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-10 col-sm-12 col-xs-12">
+      <label>Countries Visited:</label>
+      <textarea type="text" class="w-100" formControlName="countriesVisted"></textarea>
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-10 col-sm-12 col-xs-12">
+      <label>Activities:</label>
+      <textarea type="text" class="w-100" formControlName="activities"></textarea>
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-10 col-sm-12 col-xs-12">
+      <label>Campaigns:</label>
+      <textarea type="text" class="w-100" formControlName="campaigns"></textarea>
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-10 col-sm-12 col-xs-12">
+      <label>Movements:</label>
+      <textarea type="text" class="w-100" formControlName="movements"></textarea>
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Funds Released (in Rs):</label>
+      <input type="text" class="w-100" formControlName="fundReleased">
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Attendance in House:</label>
+      <input type="text" class="w-100" formControlName="attendenceInHouse">
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Funds Utilised (in Rs):</label>
+      <input type="text" class="w-100" formControlName="fundUtilised">
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>No. of Questions raised:</label>
+      <input type="text" class="w-100" formControlName="noOfQuestionRaised">
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Total Recommended Works:</label>
+      <input type="text" class="w-100" formControlName="totalRecommendedWork">
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>No. of Assurances given by Government:</label>
+      <input type="text" class="w-100" formControlName="noOfAssurancesGivenByGovernment">
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>Total Sanctioned works:</label>
+      <input type="text" class="w-100" formControlName="totalSanctionedWorks">
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>No. of Bills Introduced:</label>
+      <input type="text" class="w-100" formControlName="noOfBillIntroduced">
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-3">
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>No. of Debates:</label>
+      <input type="text" class="w-100" formControlName="noOfDebates">
+    </div>
+    <div class="col-md-5 col-sm-12 col-xs-12">
+      <label>No. of Special Mentions made:</label>
+      <input type="text" class="w-100" formControlName="noOfSpecialMentionsMade">
+    </div>
+  </div>
+
+  <div class="row d-flex align-items-center px-5 pt-5">
+    <div class="col-md-10 col-sm-12 col-xs-12" style="text-align: center;">
+      <button *ngIf="!idExist" (click)="addProfile(profileForm)" class="btn btn-success leader-success-btn" style=" background: #145394">Submit</button>
+      <button *ngIf="idExist" (click)="addProfile(profileForm)" class="btn btn-success leader-success-btn" style=" background: #145394">Edit
+        Profile
+      </button>
+    </div>
+  </div>
+</form>
