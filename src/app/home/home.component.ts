@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
         for (var i = 0; i < res['profiles'].length; i++) {
           this.trendingProfile.push(res['profiles'][i])
         }
-        console.log(this.trendingProfile);
+        //console.log(this.trendingProfile);
       }
     });
   }
@@ -65,12 +65,12 @@ export class HomeComponent implements OnInit {
   }
 
   getSectionAdvertisement(){
-     this.http.get('http://54.169.69.226:8090/api/v1/advertisement/all/2').subscribe((res) => {
+     this.http.get('http://54.179.181.21:8090/api/v1/advertisement/all/2').subscribe((res) => {
       if (res!=null && res['response'].length) {
         for (var i = 0; i < res['response'].length; i++) {
           this.trendingsectionAd.push(res['response'][i])
         }
-       // console.log(this.trendingProfile);
+        console.log(this.trendingProfile);
       }
     });
   }
